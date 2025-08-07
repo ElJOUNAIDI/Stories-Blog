@@ -2,15 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Bai Jamjuree", sans-serif; ;
+  font-family: "Bai Jamjuree", sans-serif;
 }
 /* root */
 :root {
-  --primary-color: #E43636;
+  --primary-color: #e43636;
   --secondary-color: #000000;
-  --tertiary-color: #F6EFD2;
-  --quaternary-color: #E2DDB4;
-  --body-color: #F2F2F2;
+  --tertiary-color: #f6efd2;
+  --quaternary-color: #e2ddb4;
+  --body-color: #f2f2f2;
 }
 /* section */
 section {
@@ -18,72 +18,79 @@ section {
 }
 /* Header */
 header .navbar {
-    background-color: var(--quaternary-color)!important;
-    font-weight: bold;
-    padding: 10px 0px;
+  background-color: var(--quaternary-color) !important;
+  font-weight: bold;
+  padding: 10px 0px;
 }
 nav .navbar-brand {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 /* button */
 nav .navbar-collapse .btn {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--body-color);
-    margin-right: 20px;
-    font-weight: bold;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--body-color);
+  margin-right: 20px;
+  font-weight: bold;
 }
 nav .navbar-collapse .btn:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 /* hero */
 .hero {
-    position: relative;
-    background: url('../public/images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-
+  position: relative;
+  background: url("../public/images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
-.hero::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 .hero .container {
-    height: 100%;
+  height: 100%;
 }
 .hero .container .row {
   position: relative;
   z-index: 3;
-    height: 100%;
-    align-items: center;
+  height: 100%;
+  align-items: center;
 }
-.hero .container .row .text_info h1 {
-    color: var(--quaternary-color);
-    font-weight: bold;
-    font-size: 50px;
+/*  h1 stories */
+.hero .container .row .text_info h1,
+.stories .container .row h1 {
+  color: var(--quaternary-color);
+  font-weight: bold;
+  font-size: 50px;
 }
-.hero .container .row .text_info h1 strong{
+/*  h1 stories strong */
+.hero .container .row .text_info h1 strong,
+.stories .container .row h1 strong {
   color: var(--primary-color);
 }
 .hero .container .row .text_info p {
   text-align: center;
-    color: var(--body-color);
-    font-weight: bold;
-    font-size: 20px;
+  color: var(--body-color);
+  font-weight: bold;
+  font-size: 20px;
 }
 /* Post */
-.stories{
-  height: 80vh;
+.stories {
+  /* height: 80vh; */
 }
-.stories .info .card .card-body .card-text{
+.stories .info .card {
+  height: 200px;
+}
+.stories .info .card .card-body .card-text,
+.card-title {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -91,22 +98,30 @@ nav .navbar-collapse .btn:hover {
   -webkit-box-orient: vertical;
 }
 /* singlePost */
-.single_post .container .row .card .icon i{
+.single_post .container .row .card .icon i {
   color: var(--primary-color);
   margin-right: 10px;
   cursor: pointer;
   font-size: 30px;
 }
-.single_post .container .row .card .icon i:nth-last-of-type(2){
+.single_post .container .row .card .icon i:nth-last-of-type(2) {
   color: var(--quaternary-color);
 }
 /* apropos */
-.apropos{
+.apropos {
   height: 80vh;
 }
+.apropos .container .titre {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 50px;
+}
+/* Contact */
+
 /* Footer */
 footer {
   background-color: var(--quaternary-color);
+  color: var(--secondary-color);
   padding: 20px 0px;
   text-align: center;
   font-weight: bold;

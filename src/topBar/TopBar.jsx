@@ -60,7 +60,7 @@ export default function TopBar() {
               <div
                 className="modal fade"
                 id="exampleModal"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
               >
@@ -81,7 +81,7 @@ export default function TopBar() {
                       <form>
                         <div className="mb-3">
                           <label
-                            for="exampleInputEmail1"
+                            htmlFor="exampleInputEmail1"
                             className="form-label"
                           >
                             Titre

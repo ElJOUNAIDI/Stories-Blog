@@ -1,6 +1,48 @@
 import React from "react";
-
+import { useState, useEffect } from "react";
 export default function Post() {
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  // API
+  const apiKey = "0a49f9ba359643d194b1a91083d318a4";
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch(
+          `https://newsapi.org/v2/everything?q=tesla&from=2025-07-07&sortBy=publishedAt&apiKey=${apiKey}`
+        );
+        const data = await response.json();
+        setArticles(data.articles);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des articles :", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+    // Delay de 1 seconde avant de mettre fin au chargement
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="text-center">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Chargement...</span>
+          </div>
+          <h3 className="mt-3">Chargement en cours, veuillez patienter...</h3>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <section className="stories">
@@ -16,66 +58,24 @@ export default function Post() {
             </div>
           </div>
           <div className="row info justify-content-center">
-            <div className="col-12 col-md-4 col-lg-3">
-              <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.Some quick example text to
-                    build on the card title and make up the bulk of the card's
-                    content.Some quick example text to build on the card title
-                    and make up the bulk of the card's content.Some quick
-                    example text to build on the card title and make up the bulk
-                    of the card's content.Some quick example text to build on
-                    the card title and make up the bulk of the card's
-                    content.Some quick example text to build on the card title
-                    and make up the bulk of the card's content.Some quick
-                    example text to build on the card title and make up the bulk
-                    of the card's content.Some quick example text to build on
-                    the card title and make up the bulk of the card's
-                    content.Some quick example text to build on the card title
-                    and make up the bulk of the card's content.Some quick
-                    example text to build on the card title and make up the bulk
-                    of the card's content.
-                  </p>
-                  <a href="#" className="btn btn-primary">
-                    Go somewhere
-                  </a>
+            {articles.map((article, index) => (
+              <div key={index} className="col-12 col-md-4 col-lg-3 mt-4">
+                <div className="card">
+                  <div className="card-body">
+                    <h5 className="card-title">{article.title}</h5>
+                    <p className="card-text">{article.description}</p>
+                    <a
+                      href={article.url}
+                      className="btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Lire l'article
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-12 col-md-4 col-lg-3">
-              <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" className="btn btn-primary">
-                    Go somewhere
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-4 col-lg-3">
-              <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" className="btn btn-primary">
-                    Go somewhere
-                  </a>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
