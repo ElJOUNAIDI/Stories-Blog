@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/nom-du-repo/static/css/main.0a573a22.css",
-    "main.js": "/nom-du-repo/static/js/main.a6cfa0de.js",
-    "static/media/hero-bg.jpg": "/nom-du-repo/static/media/hero-bg.8947f2200e2804d08f4d.jpg",
-    "index.html": "/nom-du-repo/index.html",
-    "main.0a573a22.css.map": "/nom-du-repo/static/css/main.0a573a22.css.map",
-    "main.a6cfa0de.js.map": "/nom-du-repo/static/js/main.a6cfa0de.js.map"
+    "main.css": "/ElJOUNAIDI/Stories-Blog/static/css/main.dfd1013e.css",
+    "main.js": "/ElJOUNAIDI/Stories-Blog/static/js/main.a6cfa0de.js",
+    "static/media/hero-bg.jpg": "/ElJOUNAIDI/Stories-Blog/static/media/hero-bg.8947f2200e2804d08f4d.jpg",
+    "index.html": "/ElJOUNAIDI/Stories-Blog/index.html",
+    "main.dfd1013e.css.map": "/ElJOUNAIDI/Stories-Blog/static/css/main.dfd1013e.css.map",
+    "main.a6cfa0de.js.map": "/ElJOUNAIDI/Stories-Blog/static/js/main.a6cfa0de.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a573a22.css",
+    "static/css/main.dfd1013e.css",
     "static/js/main.a6cfa0de.js"
   ]
 }
