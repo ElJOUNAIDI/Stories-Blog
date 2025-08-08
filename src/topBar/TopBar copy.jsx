@@ -1,26 +1,7 @@
-import { useState } from "react";
 import "../index.css";
-export default function TopBar({ addArticle }) {
+export default function TopBar() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (title && content) {
-      const newArticle = { title, content,  };
-      // Ajouter l'article au localStorage
-      const storedArticles = JSON.parse(localStorage.getItem("articles")) || [];
-      storedArticles.push(newArticle);
-      localStorage.setItem("articles", JSON.stringify(storedArticles));
-
-      // Appeler la fonction pour mettre à jour les articles dans le composant parent
-      addArticle(newArticle);
-
-      // Réinitialiser le formulaire
-      setTitle("");
-      setContent("");
-
-    }
-  };
   return (
     <>
       <header>
@@ -46,7 +27,11 @@ export default function TopBar({ addArticle }) {
             >
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
+                  <a
+                    className="nav-link active"
+                    aria-current="page"
+                    href="/"
+                  >
                     Accueil
                   </a>
                 </li>
@@ -95,7 +80,7 @@ export default function TopBar({ addArticle }) {
                       ></button>
                     </div>
                     <div className="modal-body">
-                      <form onSubmit={handleSubmit}>
+                      <form>
                         <div className="mb-3">
                           <label
                             htmlFor="exampleInputEmail1"
@@ -108,17 +93,15 @@ export default function TopBar({ addArticle }) {
                             className="form-control"
                             id="exampleInputTitre"
                             aria-describedby="emailHelp"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
                             required
                           />
-                          <label htmlFor="textarea">Votre histoire</label>
+                          <label htmlFor="textarea">
+                            Votre histoire
+                          </label>
                           <textarea
                             className="form-control"
                             id="textarea"
                             rows="3"
-                            value={content}
-                            onChange={(e) => setContent(e.target.value)}
                             required
                           ></textarea>
                         </div>
@@ -128,7 +111,7 @@ export default function TopBar({ addArticle }) {
                             className="btn btn-secondary"
                             data-bs-dismiss="modal"
                           >
-                            Fermer
+                            Close
                           </button>
                           <button type="submit" className="btn btn-primary">
                             Publish

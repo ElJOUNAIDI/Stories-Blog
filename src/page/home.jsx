@@ -4,12 +4,12 @@ export default function Home() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const apiKey = "0a49f9ba359643d194b1a91083d318a4"; // Remplacez par votre clé API
-
+   // Fonction pour obtenir la date au format YYYY-MM-DD
   useEffect(() => {
     const fetchArticles = async () => {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=tesla&from=2025-07-07&sortBy=publishedAt&apiKey=${apiKey}`
+          `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apiKey}`
         );
         const data = await response.json();
         setArticles(data.articles.slice(0, 6)); // Récupérer seulement 6 articles

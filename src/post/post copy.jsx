@@ -1,11 +1,27 @@
 import React from "react";
 import { useState, useEffect } from "react";
-export default function Post({ articles }) {
-  // const [articles, setArticles] = useState([]);
+export default function Post() {
+  const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   // API
   const apiKey = "0a49f9ba359643d194b1a91083d318a4";
+
   useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch(
+          `https://newsapi.org/v2/everything?q=tesla&from=2025-07-07&sortBy=publishedAt&apiKey=${apiKey}`
+        );
+        const data = await response.json();
+        setArticles(data.articles);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des articles :", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
     // Delay de 1 seconde avant de mettre fin au chargement
     const timer = setTimeout(() => {
       setLoading(false);
@@ -47,7 +63,7 @@ export default function Post({ articles }) {
                 <div className="card">
                   <div className="card-body">
                     <h5 className="card-title">{article.title}</h5>
-                    <p className="card-text">{article.content || article.description}</p>
+                    <p className="card-text">{article.description}</p>
                     <a
                       href={article.url}
                       className="btn btn-primary"
