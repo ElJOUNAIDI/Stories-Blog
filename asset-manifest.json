@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/nom-du-repo/static/css/main.0a573a22.css",
+    "main.js": "/nom-du-repo/static/js/main.a6cfa0de.js",
+    "static/media/hero-bg.jpg": "/nom-du-repo/static/media/hero-bg.8947f2200e2804d08f4d.jpg",
+    "index.html": "/nom-du-repo/index.html",
+    "main.0a573a22.css.map": "/nom-du-repo/static/css/main.0a573a22.css.map",
+    "main.a6cfa0de.js.map": "/nom-du-repo/static/js/main.a6cfa0de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a573a22.css",
+    "static/js/main.a6cfa0de.js"
+  ]
+}
